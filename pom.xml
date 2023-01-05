@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.tianyuan</groupId>
+	<artifactId>hyit-server-robot-message</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.3.2.RELEASE</version>
+		<!--        <relativePath />-->
+	</parent>
+	<!-- 定义项目所包含的组件或微服务 -->
+	<modules>
+		<module>hse-modules</module>
+	</modules>
+
+	<properties>
+		<!-- json -->
+		<fastjson.version>1.2.83</fastjson.version>
+		<lombok.version>1.18.12</lombok.version>
+		<!-- 服务版本 -->
+		<hse.version>1.0.0-SNAPSHOT</hse.version>
+		<!-- swagger -->
+		<swagger.fox.version>2.9.2</swagger.fox.version>
+		<swagger.core.version>1.5.24</swagger.core.version>
+		<io.swagger.version>1.5.21</io.swagger.version>
+
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<!-- 常用工具 -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+		</dependency>
+
+		<!-- JSON -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>${fastjson.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.tianyuan</groupId>
+			<artifactId>hse-common-swagger</artifactId>
+			<version>${hse.version}</version>
+		</dependency>
+
+
+	</dependencies>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<configuration>
+						<source>${java.version}</source>
+						<target>${java.version}</target>
+						<encoding>${project.build.sourceEncoding}</encoding>
+						<maxmem>1024m</maxmem>
+						<compilerArgs>
+							<arg>-Xlint:none</arg>
+						</compilerArgs>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+	<distributionManagement>
+		<repository>
+			<id>releases</id>
+			<name>Local Nexus Release Repository</name>
+			<url>http://10.103.110.72:1081/nexus/content/repositories/releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<name>Local Nexus Snapshot Repository</name>
+			<url>http://10.103.110.72:1081/nexus/content/repositories/snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+</project>

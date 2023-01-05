@@ -1,0 +1,22 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 10.106.16.22:8848
+        #        namespace: prod_test
+        namespace: prod
+        group: prod
+        username: nacos
+        password: 6%88MRB2ETNACOS
+      config:
+        username: ${spring.cloud.nacos.discovery.username}
+        password: ${spring.cloud.nacos.discovery.password}
+        server-addr: 10.106.16.22:8848
+        #        namespace: prod_test
+        namespace: prod
+        group: prod
+        shared-configs:
+          - dataId: url-config.yml
+            group: prod
+          - dataId: common-config.yml
+            group: prod
